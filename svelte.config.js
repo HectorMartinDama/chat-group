@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-cloudflare';
+import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 
 
@@ -10,10 +10,6 @@ const config = {
 
 	kit: {
 		adapter: adapter({
-			build: {
-				target: 'esnext',
-				minify: 'esbuild'
-			},
 			routes: {
 				include: ['/*'],
 				exclude: ['<all>']
