@@ -11,7 +11,7 @@
     <header>
       <h1 class="text-center text-[20px] md:text-[32px] font-bold mb-[40px] text-white">Welcome back</h1>
     </header>
-    <form class="w-[320px]" on:submit={signIn('credentials', { email: email, password: password, redirect: '/users' })}>
+    <form class="w-[320px]" on:submit={() => signIn('credentials', { email: email, password: password, redirect: '/users' })}>
       <input bind:value={email} class="border border-[grey] pl-[20px] h-[52px] w-[320px] outline-none rounded-[6px] mb-[18px]"  type="email" name="email" id="" required placeholder="Email address">
       <input bind:value={password} autocomplete="off" class="border border-[grey] pl-[20px] h-[52px] w-[320px] outline-none rounded-[6px] mb-[18px]"  type="password" name="password" id="" required placeholder="Password">
       <button class="h-[52px] w-[320px] text-white rounded-[6px] bg-[#3C46FF] transition-colors duration-200 hover:bg-[#0000FF] mb-[18px]" type="submit">Continue</button>

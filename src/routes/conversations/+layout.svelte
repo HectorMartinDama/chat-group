@@ -1,6 +1,5 @@
 <script>
 	import ConversationsList from "../../components/ConversationsList.svelte";
-	import InformationConversation from "../../components/InformationConversation.svelte";
     export let data;
 
     console.log(data.users)
@@ -8,7 +7,9 @@
 
 
 
-
+<svelte:head>
+    <title>Chat Group - Conversations</title>
+</svelte:head>
 
 <ConversationsList users={data.users} conversations={data.conversations}/>
 

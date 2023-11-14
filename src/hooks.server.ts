@@ -22,6 +22,7 @@ const authorization= async ({event, resolve}) =>{
 
 export const handle: Handle= sequence(
     SvelteKitAuth({
+        trustHost: true,
         adapter: PrismaAdapter(prisma) as Adapter,
         providers: [
             Github({clientId: GITHUB_ID, clientSecret: GITHUB_SECRET}), 
@@ -42,12 +43,8 @@ export const handle: Handle= sequence(
                     });
 
                     if(!user || !user.hashedPassword) throw error(422, 'Invalid Credentials');
-
-
                     const passwordCorrect= await bcrypt.compare(credentials.password, user.hashedPassword);
-
                     if(!passwordCorrect) throw error(422, 'Invalid Credentials');
-
                     return user;
                 }
             })

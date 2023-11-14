@@ -4,6 +4,11 @@
 
 
 
+<svelte:head>
+	<title>Chat Group</title>
+</svelte:head>
+
+
 
 <section class="flex flex-row">
 	<div class="bg-[#120F13] hidden md:block w-[60%] h-screen md:pl-[35px] md:pt-[20px]">
@@ -18,7 +23,7 @@
 		</div>
 
 		<div class="flex justify-start items-center h-full">
-			<h1 id="phrase" class="text-[32px] font-bold text-white py-[20px]">Chatea con tus amigos en tiempo real</h1>
+			<h1 id="phrase" class="text-[32px] font-bold text-white py-[20px]">Chat with yours friends in real time</h1>
 		</div>
 	</div>
 	<div class="bg-[#000000] w-full md:w-[40%] h-screen md:pt-[44px] flex flex-col items-center justify-center">
@@ -40,11 +45,9 @@
 		display: block;
 		white-space: nowrap;
 		border-right: 4px solid;
-		width: 27ch;
+		width: 25ch;
 		overflow: hidden;
-		animation: typing 2s steps(27), blink .5s infinite step-end alternate;
-
-
+		animation: typing 2s steps(25), blink .5s infinite step-end alternate;
 	}
 
 	@keyframes typing{
