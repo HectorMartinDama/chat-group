@@ -10,6 +10,10 @@ const config = {
 
 	kit: {
 		adapter: adapter({
+			build: {
+				target: 'esnext',
+				minify: 'esbuild'
+			},
 			routes: {
 				include: ['/*'],
 				exclude: ['<all>']
