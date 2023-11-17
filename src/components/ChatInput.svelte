@@ -1,5 +1,6 @@
 
 <script lang="ts">
+	import { url } from 'inspector';
     import { CldUploadButton } from 'svelte-cloudinary';
 
     export let conversationId: String;
@@ -16,11 +17,21 @@
         if(response.ok) inputValue= ''; // clean the form when the message send ok
     }
 
+    const optimizeImage= (url: string): string =>{
+        const parts = url.split('/');
+        const uploadIndex = parts.indexOf('upload');
+        parts.splice(uploadIndex + 1, 0, 'q_auto');
+        const nuevaUrl = parts.join('/');
+        console.log(nuevaUrl)
+        return nuevaUrl;
+    }
+
     const handleUpload= async (result: any) =>{
+        const img= await optimizeImage(result?.info?.secure_url);
         fetch('/api/messages', {
             method: 'POST',
             headers: { 'Content-Type' : 'application/json' },
-            body: JSON.stringify( { image: result?.info?.secure_url, conversationId } )
+            body: JSON.stringify( { image: result.info?.secure_url, conversationId } )
         });
     }
 
